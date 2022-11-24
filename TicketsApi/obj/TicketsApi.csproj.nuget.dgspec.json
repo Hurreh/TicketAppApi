@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj": {}
+    "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj": {}
   },
   "projects": {
-    "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj": {
+    "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj",
+        "projectUniqueName": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj",
         "projectName": "TicketsApi",
-        "projectPath": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj",
+        "projectPath": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj",
         "packagesPath": "C:\\Users\\wpola\\.nuget\\packages\\",
-        "outputPath": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\obj\\",
+        "outputPath": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wpola\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -37,15 +37,46 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -57,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
