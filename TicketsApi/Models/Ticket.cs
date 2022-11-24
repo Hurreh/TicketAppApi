@@ -9,6 +9,8 @@ public partial class Ticket
 
     public string SerialNumber { get; set; }
 
+    public int? TicketType { get; set; }
+
     public int? Requestor { get; set; }
 
     public int? Asignee { get; set; }

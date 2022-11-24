@@ -64,22 +64,63 @@ namespace TicketsApi.Repositories
 
         public async Task<bool> CreateNewTicket(Ticket_DTO ticket)
         {
+            string prefix = "";
+            string previousSN = "";
+            string newSN = "";
+            string snSuffix = "";
             //Add serial number generator
+            switch (ticket.TicketType) 
+            {
+                case 1:
+                    {
+                        prefix = "REQ";
+                                       
+                        break;
+                    }
+                case 2:
+                    {
+                        prefix = "INC";
+                        break;
+                    }
+                case 3:
+                    {
+                        prefix = "BUG";
+                        break;
+                    }
+            }
+            previousSN = await _context.Tickets.Where(x => x.SerialNumber.StartsWith(prefix))
+                                                .OrderByDescending(x => x.Id)
+                                                .Select(x => x.SerialNumber).FirstOrDefaultAsync();
+            if (previousSN == null)
+            {
+                newSN = prefix + "0001";
+            }
+            else
+            {
+                previousSN = previousSN.Remove(0, 3);
+                snSuffix = (int.Parse(previousSN) + 1).ToString().PadLeft(4,'0');
+                newSN = prefix + snSuffix;
+            }
+                                                 
+
+
             var newTicket = _mapper.Map<Ticket>(ticket);
-            newTicket.SerialNumber = "Serial Number";
+            newTicket.SerialNumber = newSN;
             await _context.Tickets.AddAsync(newTicket);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+
             return true;
 
         }
+        //Wziąć pod uwagę zmianę numeru seryjnego przy zmianie rodzaju ticketu
         public async Task<bool> UpdateTicket(Ticket_DTO ticket)
         {
-            ////Add serial number generator
-            //var ticketToUpdate = await _context.Tickets.Where(x=>x.SerialNumber == ticket.SerialNumber).FirstOrDefaultAsync();
-            //newTicket.SerialNumber = "Serial Number";
-            //await _context.Tickets.AddAsync(newTicket);
-            //_context.SaveChanges();
-            //return true;
+            //Add serial number generator
+            var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == ticket.SerialNumber).FirstOrDefaultAsync();
+            ticketToUpdate = _mapper.Map<Ticket>(ticketToUpdate);
+            await _context.SaveChangesAsync();
+
+            return true;
 
         }
 

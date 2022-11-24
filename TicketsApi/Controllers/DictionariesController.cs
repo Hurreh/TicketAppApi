@@ -28,6 +28,11 @@ namespace TicketsApi.Controllers
         {
             return Ok(await _dicRepo.GetImpacts());
         }
+        [HttpGet, Route("gettickettypes")]
+        public async Task<IActionResult> GetTicketTypes()
+        {
+            return Ok(await _dicRepo.GetTicketTypes());
+        }
         [HttpGet, Route("getexperts")]
         public async Task<IActionResult> GetExperts()
         {

@@ -27,6 +27,13 @@ namespace TicketsApi.Repositories
             return new ApiResult<List<StatesDic_DTO>>(result, "");
 
         }
+        public async Task<ApiResult<List<TicketTypesDic_DTO>>> GetTicketTypes()
+        {
+            var ticketTypes = await _context.TicketTypesDics.ToListAsync();
+            var result = _mapper.Map<List<TicketTypesDic_DTO>>(ticketTypes);
+            return new ApiResult<List<TicketTypesDic_DTO>>(result, "");
+
+        }
         public async Task<ApiResult<List<CategoriesDic_DTO>>> GetCategories()
         {
             var categories = await _context.CategoriesDics.ToListAsync();

@@ -27,6 +27,8 @@ public partial class TicketsContext : DbContext
 
     public virtual DbSet<Ticket> Tickets { get; set; }
 
+    public virtual DbSet<TicketTypesDic> TicketTypesDics { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:TicketDb");
 
@@ -88,10 +90,18 @@ public partial class TicketsContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("startDate");
             entity.Property(e => e.State).HasColumnName("state");
+            entity.Property(e => e.TicketType).HasColumnName("ticketType");
             entity.Property(e => e.UpdateDate)
                 .HasColumnType("datetime")
                 .HasColumnName("updateDate");
             entity.Property(e => e.UpdatedBy).HasColumnName("updatedBy");
+        });
+
+        modelBuilder.Entity<TicketTypesDic>(entity =>
+        {
+            entity.ToTable("TicketTypes_Dic");
+
+            entity.Property(e => e.Type).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);
