@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TicketsApi.DTOs;
 using TicketsApi.DTOs.ApiResult;
+using TicketsApi.Interfaces;
 using TicketsApi.Models;
 
 namespace TicketsApi.Repositories
 {
-    public class DictionariesRepo
+    public class DictionariesRepo : IDictionariesRepo
     {
         private readonly TicketsContext _context;
         private readonly IMapper _mapper;
 
         public DictionariesRepo(TicketsContext context, IMapper mapper)
-        {   
-            _context= context;
-            _mapper= mapper;
+        {
+            _context = context;
+            _mapper = mapper;
         }
 
 

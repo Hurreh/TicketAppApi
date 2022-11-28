@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj": {}
+    "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj": {}
   },
   "projects": {
-    "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj": {
+    "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj",
+        "projectUniqueName": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj",
         "projectName": "TicketsApi",
-        "projectPath": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj",
+        "projectPath": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj",
         "packagesPath": "C:\\Users\\wpola\\.nuget\\packages\\",
-        "outputPath": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\obj\\",
+        "outputPath": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wpola\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -6,10 +6,11 @@ using TicketsApi.DTOs.ApiResult;
 using TicketsApi.DTOs;
 using TicketsApi.Models;
 using System.Linq;
+using TicketsApi.Interfaces;
 
 namespace TicketsApi.Repositories
 {
-    public class TicketsRepo
+    public class TicketsRepo : ITicketsRepo
     {
         private readonly TicketsContext _context;
         private readonly IMapper _mapper;
@@ -28,7 +29,7 @@ namespace TicketsApi.Repositories
         }
         public async Task<ApiResult<List<Ticket_DTO>>> GetTicketsOfType(int ticketType)
         {
-            var tickets = await _context.Tickets.Where(x=>x.Category == ticketType).ToListAsync();
+            var tickets = await _context.Tickets.Where(x => x.Category == ticketType).ToListAsync();
             var result = _mapper.Map<List<Ticket_DTO>>(tickets);
             return new ApiResult<List<Ticket_DTO>>(result, "");
 
@@ -69,12 +70,12 @@ namespace TicketsApi.Repositories
             string newSN = "";
             string snSuffix = "";
             //Add serial number generator
-            switch (ticket.TicketType) 
+            switch (ticket.TicketType)
             {
                 case 1:
                     {
                         prefix = "REQ";
-                                       
+
                         break;
                     }
                 case 2:
@@ -98,10 +99,10 @@ namespace TicketsApi.Repositories
             else
             {
                 previousSN = previousSN.Remove(0, 3);
-                snSuffix = (int.Parse(previousSN) + 1).ToString().PadLeft(4,'0');
+                snSuffix = (int.Parse(previousSN) + 1).ToString().PadLeft(4, '0');
                 newSN = prefix + snSuffix;
             }
-                                                 
+
 
 
             var newTicket = _mapper.Map<Ticket>(ticket);

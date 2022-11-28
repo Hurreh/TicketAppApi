@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TicketsApi.Interfaces;
 using TicketsApi.Repositories;
 
 namespace TicketsApi.Controllers
@@ -8,8 +9,8 @@ namespace TicketsApi.Controllers
     [ApiController]
     public class DictionariesController : Controller
     {
-        public readonly DictionariesRepo _dicRepo;
-        public DictionariesController(DictionariesRepo dicRepo)
+        public readonly IDictionariesRepo _dicRepo;
+        public DictionariesController(IDictionariesRepo dicRepo)
         {
             _dicRepo = dicRepo;
         }
