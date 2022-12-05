@@ -44,5 +44,11 @@ namespace TicketsApi.Controllers
         {
             return Ok(await _dicRepo.GetCategories());
         }
+        [HttpGet, Route("getusers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            return Ok(await _dicRepo.GetUsers());
+        }
+
     }
 }

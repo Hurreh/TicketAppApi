@@ -10,6 +10,7 @@ namespace TicketsApi.Interfaces
         Task<bool> CreateNewTicket(Ticket_DTO ticket);
         Task<ApiResult<List<Ticket_DTO>>> GetAllExpertTickets(int expertId);
         Task<ApiResult<List<Ticket_DTO>>> GetAllTickets();
+        Task<ApiResult<Ticket_DTO>> GetTicket(string serialNumber);
         Task<ApiResult<List<Ticket_DTO>>> GetAllUnassignedTickets();
         Task<ApiResult<List<Ticket_DTO>>> GetAllUserTickets(int userId);
         Task<ApiResult<List<Ticket_DTO>>> GetAllUserTicketsOfType(int userId, int ticketType);

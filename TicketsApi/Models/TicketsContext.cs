@@ -29,6 +29,10 @@ public partial class TicketsContext : DbContext
 
     public virtual DbSet<TicketTypesDic> TicketTypesDics { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<UserRolesDic> UserRolesDics { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionStrings:TicketDb");
 
@@ -71,7 +75,7 @@ public partial class TicketsContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.Property(e => e.Asignee).HasColumnName("asignee");
+            entity.Property(e => e.Assignee).HasColumnName("assignee");
             entity.Property(e => e.Category).HasColumnName("category");
             entity.Property(e => e.Impact).HasColumnName("impact");
             entity.Property(e => e.LongDesc)
@@ -102,6 +106,29 @@ public partial class TicketsContext : DbContext
             entity.ToTable("TicketTypes_Dic");
 
             entity.Property(e => e.Type).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.FullName)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.Login)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.Password)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.UserRole)
+                .IsRequired()
+                .HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<UserRolesDic>(entity =>
+        {
+            entity.ToTable("UserRoles_Dic");
+
+            entity.Property(e => e.RoleName).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

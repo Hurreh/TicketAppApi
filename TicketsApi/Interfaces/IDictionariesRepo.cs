@@ -13,5 +13,6 @@ namespace TicketsApi.Interfaces
         Task<ApiResult<List<PriorityDic_DTO>>> GetPriorities();
         Task<ApiResult<List<StatesDic_DTO>>> GetStates();
         Task<ApiResult<List<TicketTypesDic_DTO>>> GetTicketTypes();
+        Task<ApiResult<List<User_DTO>>> GetUsers();
     }
 }

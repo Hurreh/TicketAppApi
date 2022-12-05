@@ -13,7 +13,7 @@ public partial class Ticket
 
     public int? Requestor { get; set; }
 
-    public int? Asignee { get; set; }
+    public int? Assignee { get; set; }
 
     public DateTime? StartDate { get; set; }
 

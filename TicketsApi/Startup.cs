@@ -31,9 +31,11 @@ namespace TicketsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+            services.AddControllers().AddNewtonsoftJson();
             services.AddDbContext<TicketsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TicketDb")));
             services.AddTransient<IDictionariesRepo, DictionariesRepo>();
+            services.AddTransient<IAuthRepo, AuthRepo>();
+            services.AddTransient<ITicketsRepo, TicketsRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
         }

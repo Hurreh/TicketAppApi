@@ -8,7 +8,7 @@ namespace TicketsApi.DTOs
 
         public int? Requestor { get; set; }
 
-        public int? Asignee { get; set; }
+        public int? Assignee { get; set; }
         public int? TicketType { get; set; }
 
         public DateTime? StartDate { get; set; }

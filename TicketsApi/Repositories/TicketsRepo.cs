@@ -43,21 +43,21 @@ namespace TicketsApi.Repositories
         }
         public async Task<ApiResult<List<Ticket_DTO>>> GetAllUserTicketsOfType(int userId, int ticketType)
         {
-            var tickets = await _context.Tickets.Where(x => x.Requestor == userId && x.Category == ticketType).ToListAsync();
+            var tickets = await _context.Tickets.Where(x => x.Requestor == userId && x.TicketType == ticketType).ToListAsync();
             var result = _mapper.Map<List<Ticket_DTO>>(tickets);
             return new ApiResult<List<Ticket_DTO>>(result, "");
 
         }
         public async Task<ApiResult<List<Ticket_DTO>>> GetAllExpertTickets(int expertId)
         {
-            var tickets = await _context.Tickets.Where(x => x.Asignee == expertId).ToListAsync();
+            var tickets = await _context.Tickets.Where(x => x.Assignee == expertId).ToListAsync();
             var result = _mapper.Map<List<Ticket_DTO>>(tickets);
             return new ApiResult<List<Ticket_DTO>>(result, "");
 
         }
         public async Task<ApiResult<List<Ticket_DTO>>> GetAllUnassignedTickets()
         {
-            var tickets = await _context.Tickets.Where(x => x.Asignee == null).ToListAsync();
+            var tickets = await _context.Tickets.Where(x => x.Assignee == null).ToListAsync();
             var result = _mapper.Map<List<Ticket_DTO>>(tickets);
             return new ApiResult<List<Ticket_DTO>>(result, "");
 
@@ -125,5 +125,11 @@ namespace TicketsApi.Repositories
 
         }
 
+        public async Task<ApiResult<Ticket_DTO>> GetTicket(string serialNumber)
+        {
+            var ticket = await _context.Tickets.Where(x => x.SerialNumber.ToLower() == serialNumber.ToLower()).FirstOrDefaultAsync();
+            var result = _mapper.Map<Ticket_DTO>(ticket);
+            return new ApiResult<Ticket_DTO>(result, "");
+        }
     }
 }

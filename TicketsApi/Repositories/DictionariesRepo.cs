@@ -63,5 +63,13 @@ namespace TicketsApi.Repositories
             return new ApiResult<List<ExpertsDic_DTO>>(result, "");
 
         }
+        public async Task<ApiResult<List<User_DTO>>> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            var result = _mapper.Map<List<User_DTO>>(users);
+            return new ApiResult<List<User_DTO>>(result, "");
+
+
+        }
     }
 }
