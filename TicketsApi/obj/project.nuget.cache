@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ekx9VuXtqAm/MDB/VhMcCyn5SVysU8AiKWeb8b3cIXzKbfF9s6HzhHMNwgytdCS0FRDkv2b59H3q8a4kufDFPw==",
+  "dgSpecHash": "znKO1MDd3+MpOeULS1yT9qlxxeszbq70jhp9CzJKItxauogbT9DbbKYZkYQgyLQvKOPkMN5Fa3hmQgDg1C0aow==",
   "success": true,
-  "projectFilePath": "C:\\_Projects\\Inz_PL\\TicketsApi\\TicketsApi\\TicketsApi.csproj",
+  "projectFilePath": "C:\\_Projects\\Inz_PL\\TicketsAPI\\TicketsApi\\TicketsApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wpola\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\wpola\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

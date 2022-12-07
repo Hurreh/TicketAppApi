@@ -52,6 +52,17 @@ namespace TicketsApi.Controllers
         {
             return Ok(await _ticketsRepo.UpdateTicket(ticket));
         }
+        [HttpGet, Route("updatenotes")]
+        public async Task<IActionResult> UpdateNotes(string serialNumber, string notes)
+        {
+            return Ok(await _ticketsRepo.UpdateNotes(serialNumber, notes));
+        }
+        [HttpGet, Route("changestate")]
+        public async Task<IActionResult> ChangeState(string serialNumber, int state)
+        {
+            return Ok(await _ticketsRepo.ChangeState(serialNumber, state));
+        }
+
         [HttpPost, Route("createnewticket")]
         public async Task<IActionResult> CreateNewTicket(Ticket_DTO ticket)
         {

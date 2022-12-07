@@ -107,24 +107,45 @@ namespace TicketsApi.Repositories
 
             var newTicket = _mapper.Map<Ticket>(ticket);
             newTicket.SerialNumber = newSN;
+            newTicket.State = 1; //new
             await _context.Tickets.AddAsync(newTicket);
             await _context.SaveChangesAsync();
 
             return true;
 
         }
-        //Wziąć pod uwagę zmianę numeru seryjnego przy zmianie rodzaju ticketu
+
         public async Task<bool> UpdateTicket(Ticket_DTO ticket)
         {
-            //Add serial number generator
+
             var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == ticket.SerialNumber).FirstOrDefaultAsync();
             ticketToUpdate = _mapper.Map<Ticket>(ticketToUpdate);
+            ticketToUpdate.State = 2;
             await _context.SaveChangesAsync();
 
             return true;
 
         }
+        public async Task<bool> UpdateNotes(string serialNumber, string notes)
+        {
 
+            var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == serialNumber).FirstOrDefaultAsync();
+            ticketToUpdate.Notes = notes;
+            await _context.SaveChangesAsync();
+
+            return true;
+
+        }
+        public async Task<bool> ChangeState(string serialNumber, int state)
+        {
+
+            var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == serialNumber).FirstOrDefaultAsync();
+            ticketToUpdate.State = state;
+            await _context.SaveChangesAsync();
+
+            return true;
+
+        }
         public async Task<ApiResult<Ticket_DTO>> GetTicket(string serialNumber)
         {
             var ticket = await _context.Tickets.Where(x => x.SerialNumber.ToLower() == serialNumber.ToLower()).FirstOrDefaultAsync();
