@@ -16,7 +16,7 @@ namespace TicketsApi.Interfaces
         Task<ApiResult<List<Ticket_DTO>>> GetAllUserTicketsOfType(int userId, int ticketType);
         Task<ApiResult<List<Ticket_DTO>>> GetTicketsOfType(int ticketType);
         Task<bool> UpdateNotes(string serialNumber, string note);
-        Task<bool> ChangeState(Ticket_DTO ticket);
         Task<bool> UpdateTicket(Ticket_DTO ticket);
+        Task<bool> ChangeState(string serialNumber, int state);
     }
 }

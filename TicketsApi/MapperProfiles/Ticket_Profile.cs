@@ -10,7 +10,8 @@ namespace TicketsApi.MapperProfiles
         public Ticket_Profile()
         {
             CreateMap<Ticket, Ticket_DTO>();
-            CreateMap<Ticket_DTO, Ticket>();
+            CreateMap<Ticket_DTO, Ticket>()
+                      .ForMember(x=>x.Id, opt => opt.UseDestinationValue());
         }
     }
 }

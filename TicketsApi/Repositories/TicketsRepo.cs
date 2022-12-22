@@ -118,10 +118,14 @@ namespace TicketsApi.Repositories
         public async Task<bool> UpdateTicket(Ticket_DTO ticket)
         {
 
-            var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == ticket.SerialNumber).FirstOrDefaultAsync();
-            ticketToUpdate = _mapper.Map<Ticket>(ticketToUpdate);
-            ticketToUpdate.State = 2;
+            var ticketToUpdate = await _context.Tickets.Where(x => x.SerialNumber == ticket.SerialNumber).FirstOrDefaultAsync();    
+            int? requestor = ticketToUpdate.Requestor;
+            
+            ticketToUpdate = _mapper.Map<Ticket_DTO,Ticket>(ticket, ticketToUpdate);
+            ticketToUpdate.Requestor = requestor;
+
             await _context.SaveChangesAsync();
+            
 
             return true;
 
